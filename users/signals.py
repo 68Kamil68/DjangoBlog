@@ -5,6 +5,7 @@ from .models import Profile
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
+    # pylint: disable=no-member
     if created:
         Profile.objects.create(user=instance)
 
